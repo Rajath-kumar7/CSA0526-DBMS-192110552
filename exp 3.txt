@@ -1,0 +1,29 @@
+mysql> select * frm station;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'frm station' at line 1
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Jaipur        | RJ    |    56 |    117 | IN      |
++-------+---------------+-------+-------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> insert into station values(5,'Patna','BH',34,108,'IN');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Jaipur        | RJ    |    56 |    117 | IN      |
+|     5 | Patna         | BH    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql>
