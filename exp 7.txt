@@ -1,0 +1,40 @@
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+4 rows in set (0.00 sec)
+mysql> select * from station order by (city);
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
++-------+---------------+-------+-------+--------+---------+
+4 rows in set (0.02 sec)
+
+mysql> select * from station group by(state);
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
++-------+---------------+-------+-------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from station group by(state) having lat_n<35;
++-------+---------+-------+-------+--------+---------+
+| st_id | city    | state | lat_n | long_w | country |
++-------+---------+-------+-------+--------+---------+
+|     5 | Patna   | BR    |    34 |    108 | IN      |
+|     1 | Chennai | TN    |    33 |    112 | NULL    |
++-------+---------+-------+-------+--------+---------+
+2 rows in set (0.00 sec)
