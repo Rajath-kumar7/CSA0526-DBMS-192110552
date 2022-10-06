@@ -1,0 +1,88 @@
+mysql> use dbms;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_dbms |
++----------------+
+| india          |
+| station        |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> selecct * from station;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selecct * from station' at line 1
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Dispur        | As    |    56 |     97 | IN      |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from india;
++-------+---------------+-------+-------+
+| st_id | city          | state | lat_n |
++-------+---------------+-------+-------+
+|     1 | Itanagar      | ARP   |    75 |
+|     2 | Dispur        | ASSAM |    97 |
+|     3 | Visakhapatnam | AP    |    67 |
++-------+---------------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create view station_view as select city,state,lat_n from station;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from station_view;
++---------------+-------+-------+
+| city          | state | lat_n |
++---------------+-------+-------+
+| Chennai       | TN    |    33 |
+| Kolkata       | WB    |    40 |
+| Visakhapatnam | AP    |    47 |
+| Dispur        | As    |    56 |
+| Patna         | BR    |    34 |
++---------------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create index state on station(state);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+5 rows in set (0.00 sec)
+
+mysql> show index from station;
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table   | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| station |          0 | PRIMARY  |            1 | st_id       | A         |           5 |     NULL | NULL   |      | BTREE      |         |               |
+| station |          1 | state    |            1 | state       | A         |           5 |     NULL | NULL   | YES  | BTREE      |         |               |
++---------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+2 rows in set (0.00 sec)
+
+mysql> select station.state,india.lat_n from station left outer join india on station.st_id=india.st_id;
++-------+-------+
+| state | lat_n |
++-------+-------+
+| AP    |    67 |
+| As    |  NULL |
+| BR    |  NULL |
+| TN    |    75 |
+| WB    |    97 |
++-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select station.state,india.lat_n from station right outer join india on station.st_id=india.st_id;
++-------+-------+
+| state | lat_n |
++-------+-------+
+| TN    |    75 |
+| WB    |    97 |
+| AP    |    67 |
++-------+-------+
+3 rows in set (0.00 sec)
+
+mysql>
