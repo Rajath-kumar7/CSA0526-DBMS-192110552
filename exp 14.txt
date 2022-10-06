@@ -1,0 +1,40 @@
+mysql> desc station;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| st_id   | int(11)  | NO   | PRI | NULL    |       |
+| city    | char(30) | YES  |     | NULL    |       |
+| state   | char(3)  | YES  | MUL | NULL    |       |
+| lat_n   | int(11)  | YES  |     | NULL    |       |
+| long_w  | int(11)  | YES  |     | NULL    |       |
+| country | char(2)  | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> create user rajath;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> grant all on station to rajath;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for rajath;
++----------------------------------------------------------+
+| Grants for rajath@%                                      |
++----------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'rajath'@'%'                       |
+| GRANT ALL PRIVILEGES ON `dbms`.`station` TO 'rajath'@'%' |
++----------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke  all on station from rajath;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for rajath;
++------------------------------------+
+| Grants for rajath@%                |
++------------------------------------+
+| GRANT USAGE ON *.* TO 'rajath'@'%' |
++------------------------------------+
+1 row in set (0.00 sec)
+
+mysql>
