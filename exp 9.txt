@@ -1,0 +1,66 @@
+mysql> use dbms;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_dbms |
++----------------+
+| india          |
+| station        |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * fromindia;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fromindia' at line 1
+mysql> select * from india;
++-------+---------------+-------+-------+
+| st_id | city          | state | lat_n |
++-------+---------------+-------+-------+
+|     1 | Itanagar      | ARP   |    75 |
+|     2 | Dispur        | ASSAM |    97 |
+|     3 | Visakhapatnam | AP    |    67 |
++-------+---------------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Dispur        | As    |    56 |     97 | IN      |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
+
+5 rows in set (0.00 sec)
+
+mysql> select station.city,station.country,india.state,india.lat_n from station,india where station.st_id=india.st_id;
++---------------+---------+-------+-------+
+| city          | country | state | lat_n |
++---------------+---------+-------+-------+
+| Chennai       | NULL    | ARP   |    75 |
+| Kolkata       | NULL    | ASSAM |    97 |
+| Visakhapatnam | NULL    | AP    |    67 |
++---------------+---------+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select station.state,station.lat_n from station inner join india on station.st_id=india.st_id;
++-------+-------+
+| state | lat_n |
++-------+-------+
+| TN    |    33 |
+| WB    |    40 |
+| AP    |    47 |
++-------+-------+
+3 rows in set (0.00 sec)
+
+mysql>  select station.state,india.lat_n from station inner join india on station.st_id=india.st_id;
++-------+-------+
+| state | lat_n |
++-------+-------+
+| TN    |    75 |
+| WB    |    97 |
+| AP    |    67 |
++-------+-------+
+3 rows in set (0.02 sec)
+
+mysql> 
