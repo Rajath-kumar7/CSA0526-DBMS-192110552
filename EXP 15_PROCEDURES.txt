@@ -1,0 +1,71 @@
+
+mysql> USE DBMS;
+Database changed
+mysql> SHOW TABLES;
++----------------+
+| Tables_in_dbms |
++----------------+
+| india          |
+| station        |
+| station_view   |
++----------------+
+3 rows in set (0.02 sec)
+
+mysql> SELECT * FROM STATION;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Dispur        | As    |    56 |     97 | IN      |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE STAT_INFO()
+    -> BEGIN
+    -> SELECT * FROM STATION;
+    -> END; //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL STAT_INFO();
+    -> //
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Dispur        | As    |    56 |     97 | IN      |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+5 rows in set (0.00 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE PROCEDURE WHILE_LOOP()
+    -> BEGIN
+    -> DECLARE NUM INT DEFAULT 1;
+    -> DECLARE RES VARCHAR(50) DEFAULT '';
+    -> WHILE NUM<78125 DO
+    -> SET RES= CONCAT(RES,NUM,',');
+    -> SET NUM=NUM*5;
+    -> END WHILE;
+    -> SELECT RES;
+    -> END //
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL WHILE_LOOP()
+    -> //
++----------------------------+
+| RES                        |
++----------------------------+
+| 1,5,25,125,625,3125,15625, |
++----------------------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql>
