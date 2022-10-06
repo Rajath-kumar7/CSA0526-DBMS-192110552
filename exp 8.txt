@@ -1,0 +1,54 @@
+mysql> use dbms;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_dbms |
++----------------+
+| india          |
+| station        |
++----------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+4 rows in set (0.00 sec)
+
+mysql> insert into station values(4,'Dispur','As',56,97,'IN');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from station;
++-------+---------------+-------+-------+--------+---------+
+| st_id | city          | state | lat_n | long_w | country |
++-------+---------------+-------+-------+--------+---------+
+|     1 | Chennai       | TN    |    33 |    112 | NULL    |
+|     2 | Kolkata       | WB    |    40 |    105 | NULL    |
+|     3 | Visakhapatnam | AP    |    47 |     68 | NULL    |
+|     4 | Dispur        | As    |    56 |     97 | IN      |
+|     5 | Patna         | BR    |    34 |    108 | IN      |
++-------+---------------+-------+-------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select city,state from station where state in(select state from station where st_id=1);
++---------+-------+
+| city    | state |
++---------+-------+
+| Chennai | TN    |
++---------+-------+
+1 row in set (0.00 sec)
+
+mysql> select st_id,(select city from station where st_id=4)as city,state,lat_n,long_w from  station where st_id=4;
++-------+--------+-------+-------+--------+
+| st_id | city   | state | lat_n | long_w |
++-------+--------+-------+-------+--------+
+|     4 | Dispur | As    |    56 |     97 |
++-------+--------+-------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql>
