@@ -1,0 +1,111 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 25
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create table book_publishing_company(book_id int,book_name char(30),cost int,edition int,author_name char(20));
+ERROR 1046 (3D000): No database selected
+mysql> use dbms;
+Database changed
+mysql> create table book_publishing_company(book_id int,book_name char(30),cost int,edition int,author_name char(20));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into table(1,'PYTHON',500,1,'ROSUM');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table(1,'PYTHON',500,1,'ROSUM')' at line 1
+mysql> insert into BOOK_PUBLISHING_COMPANY(1,'PYTHON',500,1,'ROSUM');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,'PYTHON',500,1,'ROSUM')' at line 1
+mysql> insert into BOOK_PUBLISHING_COMPANY(1,'PYTHON',500,2,'ROSUM');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1,'PYTHON',500,2,'ROSUM')' at line 1
+mysql> insert into BOOK_PUBLISHING_COMPANY VALUES(1,'PYTHON',500,2,'ROSUM');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into BOOK_PUBLISHING_COMPANY VALUES(2,'CHEMISTRY',550,1,'AG');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into BOOK_PUBLISHING_COMPANY VALUES(3,'C_PROGRAMMING',650,3,'RITCHIE');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into BOOK_PUBLISHING_COMPANY VALUES(4,'JAVA',700,4,'GOSLING');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM BOOK_PUBLISHING_COMPANY;
++---------+---------------+------+---------+-------------+
+| book_id | book_name     | cost | edition | author_name |
++---------+---------------+------+---------+-------------+
+|       1 | PYTHON        |  500 |       2 | ROSUM       |
+|       2 | CHEMISTRY     |  550 |       1 | AG          |
+|       3 | C_PROGRAMMING |  650 |       3 | RITCHIE     |
+|       4 | JAVA          |  700 |       4 | GOSLING     |
++---------+---------------+------+---------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> UPDATE BOOK_PUBLISHING_COMPANY SET AUTHOR_NAME='GOWTHAM' WHERE BOOK_NAME = 'CHEMISTRY';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM BOOK_PUBLISHING_COMPANY;
++---------+---------------+------+---------+-------------+
+| book_id | book_name     | cost | edition | author_name |
++---------+---------------+------+---------+-------------+
+|       1 | PYTHON        |  500 |       2 | ROSUM       |
+|       2 | CHEMISTRY     |  550 |       1 | GOWTHAM     |
+|       3 | C_PROGRAMMING |  650 |       3 | RITCHIE     |
+|       4 | JAVA          |  700 |       4 | GOSLING     |
++---------+---------------+------+---------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE BOOK_PUBLISHING_COMPANY ADD PUUBLISHED_YEAR INT;
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE BOOK_PUBLISHING_COMPANY SET PUUBLISHED_YEAR=1995 WHERE BOOK_NAME='PYTHON';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE BOOK_PUBLISHING_COMPANY SET PUUBLISHED_YEAR=1997 WHERE BOOK_NAME='JAVA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE BOOK_PUBLISHING_COMPANY SET PUUBLISHED_YEAR=1980 WHERE BOOK_NAME='C__PROGRAMMING';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> UPDATE BOOK_PUBLISHING_COMPANY SET PUUBLISHED_YEAR=2004 WHERE BOOK_NAME='CHEMISTRY';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM BOOK_PUBLISHING_COMPANY;
++---------+---------------+------+---------+-------------+-----------------+
+| book_id | book_name     | cost | edition | author_name | PUUBLISHED_YEAR |
++---------+---------------+------+---------+-------------+-----------------+
+|       1 | PYTHON        |  500 |       2 | ROSUM       |            1995 |
+|       2 | CHEMISTRY     |  550 |       1 | GOWTHAM     |            2004 |
+|       3 | C_PROGRAMMING |  650 |       3 | RITCHIE     |            NULL |
+|       4 | JAVA          |  700 |       4 | GOSLING     |            1997 |
++---------+---------------+------+---------+-------------+-----------------+
+4 rows in set (0.00 sec)
+
+mysql> UPDATE BOOK_PUBLISHING_COMPANY SET PUUBLISHED_YEAR=1980 WHERE BOOK_NAME='C_PROGRAMMING';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM BOOK_PUBLISHING_COMPANY;
++---------+---------------+------+---------+-------------+-----------------+
+| book_id | book_name     | cost | edition | author_name | PUUBLISHED_YEAR |
++---------+---------------+------+---------+-------------+-----------------+
+|       1 | PYTHON        |  500 |       2 | ROSUM       |            1995 |
+|       2 | CHEMISTRY     |  550 |       1 | GOWTHAM     |            2004 |
+|       3 | C_PROGRAMMING |  650 |       3 | RITCHIE     |            1980 |
+|       4 | JAVA          |  700 |       4 | GOSLING     |            1997 |
++---------+---------------+------+---------+-------------+-----------------+
+4 rows in set (0.00 sec)
+
+mysql>
