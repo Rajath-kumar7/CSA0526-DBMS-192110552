@@ -1,0 +1,78 @@
+mysql> create table spms(st_id int, st_name char(15),python int,aths int,java int, dbms int,result char(5),grade char(1));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into spms values(552,'RAJATH',99,87,96,100,'pass','A'),(558,'NAVEEN',80,78,86,98,'PASS','B');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into spms values(553,'GOWTHAM',90,92,89,98,'pass','S'),(561,'KALAIYARASAN',96,87,75,63,'PASS','A');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM SPMS;
++-------+--------------+--------+------+------+------+--------+-------+
+| st_id | st_name      | python | aths | java | dbms | result | grade |
++-------+--------------+--------+------+------+------+--------+-------+
+|   552 | RAJATH       |     99 |   87 |   96 |  100 | pass   | A     |
+|   558 | NAVEEN       |     80 |   78 |   86 |   98 | PASS   | B     |
+|   553 | GOWTHAM      |     90 |   92 |   89 |   98 | pass   | S     |
+|   561 | KALAIYARASAN |     96 |   87 |   75 |   63 | PASS   | A     |
++-------+--------------+--------+------+------+------+--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO SPMS VALUES(456,'ABISHEIK',88,76,89,67,'PASS','C');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM SPMS;
++-------+--------------+--------+------+------+------+--------+-------+
+| st_id | st_name      | python | aths | java | dbms | result | grade |
++-------+--------------+--------+------+------+------+--------+-------+
+|   552 | RAJATH       |     99 |   87 |   96 |  100 | pass   | A     |
+|   558 | NAVEEN       |     80 |   78 |   86 |   98 | PASS   | B     |
+|   553 | GOWTHAM      |     90 |   92 |   89 |   98 | pass   | S     |
+|   561 | KALAIYARASAN |     96 |   87 |   75 |   63 | PASS   | A     |
+|   456 | ABISHEIK     |     88 |   76 |   89 |   67 | PASS   | C     |
++-------+--------------+--------+------+------+------+--------+-------+
+5 rows in set (0.00 sec)
+
+mysql> DELETE FROM SPMS WHERE ST_ID=456;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM SPMS;
++-------+--------------+--------+------+------+------+--------+-------+
+| st_id | st_name      | python | aths | java | dbms | result | grade |
++-------+--------------+--------+------+------+------+--------+-------+
+|   552 | RAJATH       |     99 |   87 |   96 |  100 | pass   | A     |
+|   558 | NAVEEN       |     80 |   78 |   86 |   98 | PASS   | B     |
+|   553 | GOWTHAM      |     90 |   92 |   89 |   98 | pass   | S     |
+|   561 | KALAIYARASAN |     96 |   87 |   75 |   63 | PASS   | A     |
++-------+--------------+--------+------+------+------+--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER SPMS ADD DEPT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SPMS ADD DEPT' at line 1
+mysql> ALTER TABLE ADD DEPT CHAR(5);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ADD DEPT CHAR(5)' at line 1
+mysql>
+mysql> ALTER TABLE SPMS ADD DEPT CHAR(5);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE SPMS SET DEPT(CSE) WHERE RESULT='PASS';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CSE) WHERE RESULT='PASS'' at line 1
+mysql> UPDATE SPMS SET DEPT='CSE' WHERE RESULT='PASS';
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> SELECT * FROM SPMS;
++-------+--------------+--------+------+------+------+--------+-------+------+
+| st_id | st_name      | python | aths | java | dbms | result | grade | DEPT |
++-------+--------------+--------+------+------+------+--------+-------+------+
+|   552 | RAJATH       |     99 |   87 |   96 |  100 | pass   | A     | CSE  |
+|   558 | NAVEEN       |     80 |   78 |   86 |   98 | PASS   | B     | CSE  |
+|   553 | GOWTHAM      |     90 |   92 |   89 |   98 | pass   | S     | CSE  |
+|   561 | KALAIYARASAN |     96 |   87 |   75 |   63 | PASS   | A     | CSE  |
++-------+--------------+--------+------+------+------+--------+-------+------+
+4 rows in set (0.00 sec)
+
+mysql>
