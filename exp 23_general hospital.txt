@@ -1,0 +1,110 @@
+mysql> create table general_hospital(p_id int,p_name char(30), age int,p_no int);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into general_hospital values(1,'vikas',30,9876453217);
+ERROR 1264 (22003): Out of range value for column 'p_no' at row 1
+mysql> insert into general_hospital values(1,'vikas',30,98764);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into general_hospital values(2,'charma',35,87649);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into general_hospital values(3,'kiran',40,098457);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into general_hospital values(4,'nayak',50,54678);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into general_hospital values(5,'srj',60,24536);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from general_gospital;
+ERROR 1146 (42S02): Table 'dbms.general_gospital' doesn't exist
+mysql> select * from general_hospital;
++------+--------+------+-------+
+| p_id | p_name | age  | p_no  |
++------+--------+------+-------+
+|    1 | vikas  |   30 | 98764 |
+|    2 | charma |   35 | 87649 |
+|    3 | kiran  |   40 | 98457 |
+|    4 | nayak  |   50 | 54678 |
+|    5 | srj    |   60 | 24536 |
++------+--------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> update general_hospital set p_name='charaan' where p_id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from general_hospital;
++------+---------+------+-------+
+| p_id | p_name  | age  | p_no  |
++------+---------+------+-------+
+|    1 | vikas   |   30 | 98764 |
+|    2 | charaan |   35 | 87649 |
+|    3 | kiran   |   40 | 98457 |
+|    4 | nayak   |   50 | 54678 |
+|    5 | srj     |   60 | 24536 |
++------+---------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table doctor(d_id int, d_name char(30), spec char(50),contact int(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into doctor values(1021,'vikram','heart',9873456218);
+ERROR 1264 (22003): Out of range value for column 'contact' at row 1
+mysql> insert into doctor values(1021,'vikram','heart',987345621);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into doctor values(1501,'dinesh','neurology',987345631);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into doctor values(2301,'hema','eye',987345645);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into doctor values(3001,'thanu','physiotherapy',987345691);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from doctor;
++------+--------+---------------+-----------+
+| d_id | d_name | spec          | contact   |
++------+--------+---------------+-----------+
+| 1021 | vikram | heart         | 987345621 |
+| 1501 | dinesh | neurology     | 987345631 |
+| 2301 | hema   | eye           | 987345645 |
+| 3001 | thanu  | physiotherapy | 987345691 |
++------+--------+---------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> alter table doctor add primary key(d_id);
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select p_name from general_hospital order by p_name;
++---------+
+| p_name  |
++---------+
+| charaan |
+| kiran   |
+| nayak   |
+| srj     |
+| vikas   |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select p_name,age from general_hospital group by p_name;
++---------+------+
+| p_name  | age  |
++---------+------+
+| charaan |   35 |
+| kiran   |   40 |
+| nayak   |   50 |
+| srj     |   60 |
+| vikas   |   30 |
++---------+------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+
