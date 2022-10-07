@@ -1,0 +1,71 @@
+mysql> create table car_rental_company(car_id int,car_name char(20),car_model char(10), rent_date date,rent_cost int,no_of_days int);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into car_rental_company values(1,'ford',2004,'2010-09-22',50000,10);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into car_rental_company values(2,'suzuki',2005,'2010-09-20',40000,15);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into car_rental_company values(3,'bmw',2007,'2010-09-14',400000,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into car_rental_company values(4,'nexon',2008,'2010-09-11',300000,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from car_rental_comppany;
+ERROR 1146 (42S02): Table 'dbms.car_rental_comppany' doesn't exist
+mysql> select * from car_rental_company;
++--------+----------+-----------+------------+-----------+------------+
+| car_id | car_name | car_model | rent_date  | rent_cost | no_of_days |
++--------+----------+-----------+------------+-----------+------------+
+|      1 | ford     | 2004      | 2010-09-22 |     50000 |         10 |
+|      2 | suzuki   | 2005      | 2010-09-20 |     40000 |         15 |
+|      3 | bmw      | 2007      | 2010-09-14 |    400000 |         20 |
+|      4 | nexon    | 2008      | 2010-09-11 |    300000 |         30 |
++--------+----------+-----------+------------+-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> update  car_rental_company set car_name='audi' where car_id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from car_rental_company;
++--------+----------+-----------+------------+-----------+------------+
+| car_id | car_name | car_model | rent_date  | rent_cost | no_of_days |
++--------+----------+-----------+------------+-----------+------------+
+|      1 | ford     | 2004      | 2010-09-22 |     50000 |         10 |
+|      2 | audi     | 2005      | 2010-09-20 |     40000 |         15 |
+|      3 | bmw      | 2007      | 2010-09-14 |    400000 |         20 |
+|      4 | nexon    | 2008      | 2010-09-11 |    300000 |         30 |
++--------+----------+-----------+------------+-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from car_rental_company where car_id=3;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from car_rental_company;
++--------+----------+-----------+------------+-----------+------------+
+| car_id | car_name | car_model | rent_date  | rent_cost | no_of_days |
++--------+----------+-----------+------------+-----------+------------+
+|      1 | ford     | 2004      | 2010-09-22 |     50000 |         10 |
+|      2 | audi     | 2005      | 2010-09-20 |     40000 |         15 |
+|      4 | nexon    | 2008      | 2010-09-11 |    300000 |         30 |
++--------+----------+-----------+------------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table car_rental_company add primary key(car_id);
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from car_rental_company;
++--------+----------+-----------+------------+-----------+------------+
+| car_id | car_name | car_model | rent_date  | rent_cost | no_of_days |
++--------+----------+-----------+------------+-----------+------------+
+|      1 | ford     | 2004      | 2010-09-22 |     50000 |         10 |
+|      2 | audi     | 2005      | 2010-09-20 |     40000 |         15 |
+|      4 | nexon    | 2008      | 2010-09-11 |    300000 |         30 |
++--------+----------+-----------+------------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
