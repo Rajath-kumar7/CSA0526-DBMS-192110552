@@ -1,0 +1,109 @@
+mysql> use dbmss;
+ERROR 1049 (42000): Unknown database 'dbmss'
+mysql> use dbms;
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_dbms |
++----------------+
+| edept          |
+| employee       |
+| india          |
+| station        |
+| station_view   |
++----------------+
+5 rows in set (0.00 sec)
+
+mysql> select* from employee;
++--------+----------+------------+--------+-------------+
+| emp_id | emp_name | dob        | salary | address     |
++--------+----------+------------+--------+-------------+
+|    701 | RAKESSH  | 2007-07-01 | 100000 | CHITOOR     |
+|    702 | RAMESH   | 2008-04-23 | 150000 | COIMBATORE  |
+|    703 | RAJESH   | 2007-09-15 | 200000 | CHENNAI     |
+|    704 | ROHIT    | 2009-10-04 | 250000 | CHEMBUR     |
+|    705 | RAHUL    | 2007-09-06 | 210000 | ERODE       |
+|    707 | REINGS   | 2010-12-17 | 200000 | VADAPPALANI |
+|    708 | KISHORE  | 2009-07-02 | 300000 | NEIVELI     |
++--------+----------+------------+--------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from edept;
++---------+---------------+-----------------+
+| dept_no | dept_name     | no_of_employees |
++---------+---------------+-----------------+
+|       1 | sales         |              30 |
+|       2 | HR            |              20 |
+|       3 | Manufacturing |              10 |
+|       4 | accounts      |              21 |
+|       5 | Maintainance  |              40 |
++---------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select emp_name,salary from employee where address='%c';
+Empty set (0.00 sec)
+
+mysql> select emp_name,salary from employee where address like 'c%';
++----------+--------+
+| emp_name | salary |
++----------+--------+
+| RAKESSH  | 100000 |
+| RAMESH   | 150000 |
+| RAJESH   | 200000 |
+| ROHIT    | 250000 |
++----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> seelect min(salary) from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'seelect min(salary) from employee' at line 1
+mysql> select min(salary) from employee;
++-------------+
+| min(salary) |
++-------------+
+|      100000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary) from employee;
++-------------+
+| max(salary) |
++-------------+
+|      300000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select * from edept order by dept_name;
++---------+---------------+-----------------+
+| dept_no | dept_name     | no_of_employees |
++---------+---------------+-----------------+
+|       4 | accounts      |              21 |
+|       2 | HR            |              20 |
+|       5 | Maintainance  |              40 |
+|       3 | Manufacturing |              10 |
+|       1 | sales         |              30 |
++---------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from edept group by dept_name;
++---------+---------------+-----------------+
+| dept_no | dept_name     | no_of_employees |
++---------+---------------+-----------------+
+|       4 | accounts      |              21 |
+|       2 | HR            |              20 |
+|       5 | Maintainance  |              40 |
+|       3 | Manufacturing |              10 |
+|       1 | sales         |              30 |
++---------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select emp_id,emp_name from employee where emp_name in(select emp_name from employee where salary>200000);
++--------+----------+
+| emp_id | emp_name |
++--------+----------+
+|    704 | ROHIT    |
+|    705 | RAHUL    |
+|    708 | KISHORE  |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql>
