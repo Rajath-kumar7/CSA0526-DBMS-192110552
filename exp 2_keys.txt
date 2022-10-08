@@ -1,0 +1,88 @@
+
+
+mysql> update employee set primary key(emp_id);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'primary key(emp_id)' at line 1
+mysql> alter table employee add primary key(emp_id);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| emp_id   | int(11)     | NO   | PRI | NULL    |       |
+| emp_name | varchar(20) | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| salary   | int(11)     | YES  |     | NULL    |       |
+| address  | char(50)    | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from edept;
++---------+---------------+-----------------+
+| dept_no | dept_name     | no_of_employees |
++---------+---------------+-----------------+
+|       1 | sales         |              30 |
+|       2 | HR            |              20 |
+|       3 | Manufacturing |              10 |
+|       4 | accounts      |              21 |
+|       5 | Maintainance  |              40 |
++---------+---------------+-----------------+
+5 rows in set (0.01 sec)
+
+mysql> create table emp1(emp_id int, emp_dept char(10));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp1 values(701,'sales'),(702,'maintaina'),(703,'HR'),(704,'accounts'),(705,'sales'),(707,'ACCOUNTS'),(708,'manufacturing');
+ERROR 1406 (22001): Data too long for column 'emp_dept' at row 7
+mysql> insert into emp1 values(701,'sales'),(702,'maintaina'),(703,'HR'),(704,'accounts'),(705,'sales'),(707,'ACCOUNTS'),(708,'manufact');
+Query OK, 7 rows affected (0.00 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++--------+----------+------------+--------+-------------+
+| emp_id | emp_name | dob        | salary | address     |
++--------+----------+------------+--------+-------------+
+|    701 | RAKESSH  | 2007-07-01 | 100000 | CHITOOR     |
+|    702 | RAMESH   | 2008-04-23 | 150000 | COIMBATORE  |
+|    703 | RAJESH   | 2007-09-15 | 200000 | CHENNAI     |
+|    704 | ROHIT    | 2009-10-04 | 250000 | CHEMBUR     |
+|    705 | RAHUL    | 2007-09-06 | 210000 | ERODE       |
+|    707 | REINGS   | 2010-12-17 | 200000 | VADAPPALANI |
+|    708 | KISHORE  | 2009-07-02 | 300000 | NEIVELI     |
++--------+----------+------------+--------+-------------+
+7 rows in set (0.00 sec)
+
+mysql> select  * from emp1;
++--------+-----------+
+| emp_id | emp_dept  |
++--------+-----------+
+|    701 | sales     |
+|    702 | maintaina |
+|    703 | HR        |
+|    704 | accounts  |
+|    705 | sales     |
+|    707 | ACCOUNTS  |
+|    708 | manufact  |
++--------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> alter table emp1 add foreign key(emp_id) references employee(emp_id);
+Query OK, 7 rows affected (0.00 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee add unique(emp_id);
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| emp_id   | int(11)     | NO   | PRI | NULL    |       |
+| emp_name | varchar(20) | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| salary   | int(11)     | YES  |     | NULL    |       |
+| address  | char(50)    | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql>
