@@ -1,51 +1,76 @@
 # CSA0526-DBMS-192110552
+
 ##Experiment 1
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%201.txt)
+[CREATE ALTER DROP](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%201.txt)
+
 ##Experiment 2
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%202_keys.txt)
+[KEYS](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%202_keys.txt)
+
 ##Experiment 3
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%203.txt)
+[INSERT,SELECT](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%203.txt)
+
 ##Experiment 4
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%204.txt)
+[UPDATE,DELETE](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%204.txt)
+
 ##Experiment 5
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%205.txt)
+[WHERE,PATTERN MAKING](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%205.txt)
+
 ##Experiment 6
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%206.txt)
+[BETWEEN,IN](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%206.txt)
+
 ##Experiment 7
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%207.txt)
+[GROUP BY,HAVING,ORDER BY](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%207.txt)
+
 ##Experiment 8
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%208.txt)
+[SUBQUERY,CORRELATED QUERY](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%208.txt)
+
 ##Experiment 9
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%209.txt)
+[JOINS](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%209.txt)
+
 ##Experiment 10
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2010.txt)
+[VIEW INDEX SEQUENCE](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2010.txt)
+
 ##Experiment 11
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/EXP%2011.txt)
+[CASE,IF,LOOP](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/EXP%2011.txt)
+
 ##Experiment 12
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2012.txt)
+[WHILE](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2012.txt)
+
 ##Experiment 13
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2013.txt)
+[SAVEPOINT](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2013.txt)
+
 ##Experiment 14
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2014.txt)
+[GRANT REVOKE](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2014.txt)
+
 ##Experiment 15
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/EXP%2015_PROCEDURES.txt)
+[PROCEDURES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/EXP%2015_PROCEDURES.txt)
+
 ##Experiment 16
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2016_functions.txt)
+[FUNCTIONS](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2016_functions.txt)
+
 ##Experiment 17
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2017_SQL%20STRING%20FUNCTIONS%20REPEAT%2CREPLICATE.txt)
+[REPEAT REPLICATE](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2017_SQL%20STRING%20FUNCTIONS%20REPEAT%2CREPLICATE.txt)
+
 ##Experiment 18
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2018_commit_rollback.txt)
+[COMMIT,ROLLBACK](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2018_commit_rollback.txt)
+
 ##Experiment 19
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/EXP%2019.txt)
+[DATABASE CONNECTIVITY](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/EXP%2019.txt)
+
 ##Experiment 20
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2020%20HRM%20database.txt)
+[HRM DATABASE](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2020%20HRM%20database.txt)
+
 ##Experiment 21
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2021_sql%20advanced%20queries.txt)
+[ADVANCED SQLL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2021_sql%20advanced%20queries.txt)
+
 ##Experiment 22
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2022_book_publishing_company.txt)
+[BOOK PUBLISHING COMPANY](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2022_book_publishing_company.txt)
+
 ##Experiment 23
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2023_general%20hospital.txt)
+[GENERAL HOSPITAL](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2023_general%20hospital.txt)
+
 ##Experiment 24
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp_24_car%20rental%20company.txt)
+[CAR RENTAL COMPANY](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp_24_car%20rental%20company.txt)
+
 ##Experiment 25
-[SQL QUERIES](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2025_student%20monitoring%20report%20systeem.txt)
+[STUDENT PROGRESS MONITORING SYSTEM](https://github.com/Rajath-kumar7/CSA0526-DBMS-192110552/blob/main/exp%2025_student%20monitoring%20report%20systeem.txt)
